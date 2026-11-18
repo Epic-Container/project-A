@@ -2,19 +2,34 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b1018;
+}
+
+@theme {
+  --color-background: #0b1018;
+  --color-surface: #151e2a;
+  --color-border: #293647;
+
+  --color-primary: #22d3ee;
+  --color-accent: #f97316;
+
+  --color-danger: #ef4444;
+  --color-special: #a78bfa;
+
+  --color-foreground: #e5e7eb;
+  --color-muted: #94a3b8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-tiny5: var(--font-tiny5);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0b1018;
     --foreground: #ededed;
   }
 }
@@ -23,4 +38,22 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  .primaryHover {
+    @apply bg-primary hover:bg-white;
+  }
+  .accentHover {
+    @apply bg-accent hover:bg-white;
+  }
+  .dangerHover {
+    @apply bg-danger hover:bg-white;
+  }
+  .specialHover {
+    @apply bg-special hover:bg-white;
+  }
+  .none {
+    @apply bg-surface hover:bg-border hover:border-background;
+  }
 }
